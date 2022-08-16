@@ -138,19 +138,29 @@ body {
   overflow: hidden;
 }
 .sc1 .title-area {
-  padding-top: 90px;
+  padding: 90px 100px 0 100px;
+  box-sizing: border-box;
+
+  border: 5px solid yellowgreen;
 }
 .sc1 .title-area h3 {
   font-size: 8.5rem;
   font-weight: 900;
   line-height: 180px;
   color: transparent;
+  -webkit-text-stroke: 3px #fff;
+  transition: 1.8s;
+
+  text-align: center;
 }
 .sc1 .title-area h3:first-child {
   -webkit-text-stroke: 3px #ffce00;
+  transform: translateX(-100%);
+
+  border: 5px solid dodgerblue;
 }
 .sc1 .title-area h3:last-child {
-  -webkit-text-stroke: 3px #fff;
+  transform: translateX(100%);
 }
 
 .sc1 .article-area {
@@ -354,7 +364,6 @@ body {
 }
 .sc3 .sc3-inner {
   width: 1320px;
-  border: 3px solid red;
 }
 
 .sc3 .box1 {
@@ -444,18 +453,32 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  transition: 0.7s;
 }
 
-.sc3 .box2 .img-area .frame .society-img:nth-child(1) {
-  left: -50px;
+.sc3 .box2 .img-area .frame .society-img.active:nth-child(1) {
+  left: -60px;
   top: 25%;
+  transform: translateY(-50%) rotate(-8deg);
 }
-.sc3 .box2 .img-area .frame .society-img:nth-child(2) {
+.sc3 .box2 .img-area .frame .society-img.active:nth-child(2) {
   left: 145px;
+  transform: translateY(-50%) rotate(10deg);
 }
-.sc3 .box2 .img-area .frame .society-img:nth-child(3) {
+.sc3 .box2 .img-area .frame .society-img.active:nth-child(3) {
   top: 89%;
-  left: -150px;
+  left: -100px;
+  transform: translateY(-50%) rotate(-14deg);
+}
+
+.sc3 .box2 .img-area .frame .society-img:nth-child(1):hover {
+  transform: translateY(-50%) rotate(-8deg) scale(1.1);
+}
+.sc3 .box2 .img-area .frame .society-img:nth-child(2):hover {
+  transform: translateY(-50%) rotate(10deg) scale(1.1);
+}
+.sc3 .box2 .img-area .frame .society-img:nth-child(3):hover {
+  transform: translateY(-50%) rotate(-14deg) scale(1.1);
 }
 
 /* Section 4 */
@@ -675,6 +698,8 @@ body {
   font-size: 200px;
   font-weight: 900;
   white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 3px #fff;
 }
 
 .sc6 p {

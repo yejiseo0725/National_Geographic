@@ -2,8 +2,8 @@ $(function () {
   $(".visual-section .title-area").slick({
     dots: false,
     arrows: false,
-    // autoplay: true,
-    // autoplaySpeed: 1500,
+    autoplay: true,
+    autoplaySpeed: 1500,
     pauseOnHover: false,
     speed: 1000,
     infinite: true,
@@ -12,18 +12,36 @@ $(function () {
   });
 
   const videoOffset = $(".sc2 .video-area").offset().top;
-  //   console.log(videoOffset);
+  const mainoffset = $(".visual-section .title-area").offset().top;
+
+  const s1offset = $(".sc1").offset().top;
+  const s1Titleoffset = $(".sc1 .title-area h3:first-child").offset().top;
+  console.log(s1offset, s1Titleoffset);
   const s3offset = $(".sc3").offset().top;
+  const s4offset = $(".sc4").offset().top;
   const s5offset = $(".sc5").offset().top;
-  const s6offset = $(".sc6").offset().top;
-  console.log(s5offset);
+
+  const $winH = $(window).height();
 
   $(window).scroll(function () {
     const now = $(this).scrollTop();
     const nowScrollTop = parseInt(now);
-    const $winH = $(window).height();
 
     console.log(nowScrollTop);
+
+    if (nowScrollTop >= mainoffset) {
+      $(".sc1 .title-area h3").css({
+        transform: "translateX(0)",
+      });
+    } else {
+      $(".sc1 .title-area h3").css({
+        transform: "",
+      });
+    }
+
+    if (nowScrollTop >= s1Titleoffset) {
+      $(".sc1 .article-area article:nth-child(1)").css({});
+    }
 
     if (nowScrollTop >= videoOffset && nowScrollTop <= s3offset) {
       $(".sc2 .video-area .bg-video").css({
@@ -47,6 +65,12 @@ $(function () {
       });
     }
 
+    if (nowScrollTop >= s3offset) {
+      $(".box2 .img-area .society-img").addClass("active");
+    } else {
+      $(".box2 .img-area .society-img").removeClass("active");
+    }
+
     if (nowScrollTop >= s5offset) {
       $(".sc5 .sc5-inner").css({
         position: "fixed",
@@ -62,15 +86,5 @@ $(function () {
         transform: "",
       });
     }
-
-    // if (nowScrollTop + $winH * 0.5 >= s6offset) {
-    //   $(".sc6").css({
-    //     position: "fixed",
-    //   });
-    // } else {
-    //   $(".sc6").css({
-    //     position: "",
-    //   });
-    // }
   });
 });
