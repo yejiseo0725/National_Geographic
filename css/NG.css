@@ -140,8 +140,6 @@ body {
 .sc1 .title-area {
   padding: 90px 100px 0 100px;
   box-sizing: border-box;
-
-  border: 5px solid yellowgreen;
 }
 .sc1 .title-area h3 {
   font-size: 8.5rem;
@@ -156,8 +154,6 @@ body {
 .sc1 .title-area h3:first-child {
   -webkit-text-stroke: 3px #ffce00;
   transform: translateX(-100%);
-
-  border: 5px solid dodgerblue;
 }
 .sc1 .title-area h3:last-child {
   transform: translateX(100%);
@@ -166,9 +162,8 @@ body {
 .sc1 .article-area {
   display: flex;
   justify-content: center;
-  padding-top: 120px;
-
-  padding-bottom: 300px;
+  padding-top: 500px;
+  padding-bottom: 100px;
 }
 .sc1 .article-area article {
   position: relative;
@@ -185,6 +180,7 @@ body {
 
   overflow: hidden;
   cursor: pointer;
+  transition: 0.5s;
 }
 .sc1 .article-area article:last-child {
   margin-right: 0;
@@ -561,16 +557,46 @@ body {
   height: 700px;
   box-sizing: border-box;
   cursor: pointer;
+
+  overflow: hidden;
 }
+
 .sc4 .article-area article img {
-  position: absolute;
+  position: relative;
   object-fit: cover;
+  font-size: 0;
 }
 .sc4 .article-area article img:first-child {
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* width: 100%;
+  height: 100%; */
+  /* overflow: hidden; */
+  transition: 1s;
+}
+
+.sc4 .article-area article img.img-1::before {
+  content: "";
+  background-image: url(../img/destination1.png);
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
+  height: 0%;
+}
+.sc4 .article-area article img.img-2::before {
+  content: url(../img/destination2.png);
+}
+.sc4 .article-area article img.img-3::before {
+  content: url(../img/destination3.png);
+}
+.sc4 .article-area article:hover img:first-child::before {
   height: 100%;
 }
+
 .sc4 .article-area article img.frame-small {
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -595,119 +621,110 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 300vh;
 }
 .sc5 .sc5-inner {
-  position: relative;
   width: 1320px;
-  height: 1080px;
-  /* border: 5px solid cadetblue; */
+  padding: 300px 0;
 }
 
 .sc5 .text-area {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
   width: 900px;
   text-align: center;
+  margin: 0 auto;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.8s;
 }
 .sc5 .text-area h2 {
   font-size: 3.75rem;
   font-weight: 600;
+
+  transform: translateY(-50px);
+  opacity: 0;
 }
 .sc5 .text-area p {
   font-size: 3rem;
   font-weight: 200;
   padding-top: 40px;
+
+  transform: translateY(-50px);
+  opacity: 0;
 }
 
-.sc5 .boxes {
-  position: relative;
-  width: 1320px;
-  border: 5px solid dodgerblue;
+.sc5 .text-area.active {
+  opacity: 1;
+  visibility: visible;
 }
-.sc5 .box {
-  margin-top: 1000px;
-
-  position: absolute;
-  width: 250px;
-  height: 300px;
-  background-color: #fff;
+.sc5 .text-area.active h2,
+.sc5 .text-area.active p {
+  opacity: 1;
+  transition: 0.8s;
+  transform: translateY(0);
 }
-.sc5 .box img {
-  display: block;
-  width: 250px;
-  height: 200px;
-  object-fit: cover;
+.sc5 .text-area.active h2 {
+  transition-delay: 0.2s;
 }
-.sc5 .box .img-line {
-  width: 100%;
-  height: 3px;
-  background-color: #ffce00;
-}
-.sc5 .box p {
-  font-size: 1rem;
-  font-weight: 400;
-  color: #040a16;
-  text-align: center;
-  padding: 10px 20px 0 20px;
-}
-
-.sc5 .box:nth-child(1) {
-  left: 326px;
-}
-.sc5 .box:nth-child(2) {
-  top: 150px;
-  left: 785px;
-}
-.sc5 .box:nth-child(3) {
-  top: 500px;
-  left: 90px;
-}
-.sc5 .box:nth-child(4) {
-  top: 600px;
-  left: 535px;
-}
-.sc5 .box:nth-child(5) {
-  top: 700px;
-  left: 980px;
-}
-.sc5 .box:nth-child(6) {
-  top: 1100px;
-  left: 285px;
+.sc5 .text-area.active p {
+  transition-delay: 0.5s;
 }
 
 /* Section 6 */
 .sc6 {
   position: relative;
   width: 100%;
-  height: 900px;
+  height: 800px;
   left: 0;
   top: 0;
   background-color: #040a16;
   box-sizing: border-box;
-  margin-top: 200px;
 }
 
+/* Rolling  */
 .sc6 .title-area {
-  padding-top: 170px;
-}
-.sc6 .title-area h2 {
-  font-size: 200px;
-  font-weight: 900;
+  display: flex;
   white-space: nowrap;
-  color: transparent;
-  -webkit-text-stroke: 3px #fff;
 }
 
-.sc6 p {
+.sc6 .title-area div.h2 {
+  font-size: 12rem;
+  font-weight: 900;
+  line-height: 300px;
+  text-align: center;
+
+  background-image: url(../img/sky.jpg);
+  background-position: 20%;
+  background-size: contain;
+
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  box-sizing: border-box;
+  animation: rollingH2 8s linear infinite;
+}
+.sc6 .title-area div:first-child {
+  transform: translateX(-100%);
+}
+.sc6 .title-area div:last-child {
+  transform: translateX(-100%);
+}
+@keyframes rollingH2 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.sc6 p.desc {
   font-size: 1.8rem;
   font-weight: 400;
   line-height: 40px;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 70px;
 }
 
 .sc6 .info-area {
