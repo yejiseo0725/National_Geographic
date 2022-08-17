@@ -3,6 +3,7 @@ $(function () {
   const mainoffset = $(".visual-section .title-area").offset().top;
 
   const s1offset = $(".sc1").offset().top;
+  const s1artoffset = $(".sc1 .article-area").offset().top;
   const s1h3offset = $(".sc1 .title-area").offset().top;
   const s3offset = $(".sc3").offset().top;
   const s4offset = $(".sc4").offset().top;
@@ -18,37 +19,47 @@ $(function () {
 
     console.log(nowScrollTop);
 
+    // Main Visual
     $("header").css({
       top: nowScrollTop * 0.5 + "px",
     });
 
     $(".visual-section .title-area").css({
-      marginTop: nowScrollTop * 0.5 + "px",
+      // marginTop: nowScrollTop * 0.3 + "px",
     });
 
-    if (nowScrollTop >= s1offset) {
-      $(".sc1 .title-area").css({
-        transform: "translateY(" + nowScrollTop * 0.4 + "px)",
-      });
+    // Section 1
+    const st_Ratio = nowScrollTop - s1offset;
+    const stFix_area = $(".scrollFix-area").height();
+    const st_value = (st_Ratio / stFix_area) * 100;
 
-      $(".sc1 .article-area article:nth-child(1)").css({
-        transform: "translateY(" + -nowScrollTop * 0.4 + "px)",
+    if (nowScrollTop >= s1offset) {
+      $(".scrollFix-area .title-area").css({
+        position: "fixed",
       });
-      $(".sc1 .article-area article:nth-child(2)").css({
-        transform: "translateY(" + -nowScrollTop * 0.45 + "px)",
+      $(".rollingTxt.t1").css({
+        transform: "translateX(" + -st_Ratio + "px)",
       });
-      $(".sc1 .article-area article:nth-child(3)").css({
-        transform: "translateY(" + -nowScrollTop * 0.35 + "px)",
+      $(".rollingTxt.t2").css({
+        transform: "translateX(" + st_Ratio + "px)",
       });
     } else {
-      $(".sc1 .article-area article:nth-child(1)").css({
-        transform: "",
+      $(".scrollFix-area .title-area").css({
+        position: "",
       });
-      $(".sc1 .article-area article:nth-child(2)").css({
-        transform: "",
+    }
+
+    const art_Ratio = nowScrollTop - s1artoffset;
+
+    if (nowScrollTop + $winH > s1artoffset) {
+      $(".sc1 .article-area .art1").css({
+        transform: "translateY(" + -art_Ratio * 0.6 + "px)",
       });
-      $(".sc1 .article-area article:nth-child(3)").css({
-        transform: "",
+      $(".sc1 .article-area .art2").css({
+        transform: "translateY(" + -art_Ratio * 0.9 + "px)",
+      });
+      $(".sc1 .article-area .art3").css({
+        transform: "translateY(" + -art_Ratio * 0.3 + "px)",
       });
     }
 
@@ -74,30 +85,10 @@ $(function () {
       $(".box2 .img-area .society-img").removeClass("active");
     }
 
-    if (nowScrollTop >= s4offset) {
-      $(".sc4").css({
-        position: "fixed",
-      });
-    } else {
-      $(".sc4").css({
-        position: "",
-      });
-    }
-
     if (nowScrollTop >= s4poffset) {
       $(".sc5 .text-area").addClass("active");
     } else {
       $(".sc5 .text-area").removeClass("active");
-    }
-
-    if (nowScrollTop >= s5offset) {
-      $(".sc5").css({
-        position: "fixed",
-      });
-    } else {
-      $(".sc5").css({
-        position: "",
-      });
     }
   });
 });

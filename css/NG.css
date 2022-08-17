@@ -149,12 +149,32 @@ body {
   position: relative;
   overflow: hidden;
 }
+
+.sc1 .scrollFix-area {
+  height: 200vh;
+  position: relative;
+}
+.sc1 .scrollFix-inner {
+  position: relative;
+  height: 100vh;
+}
+
 .sc1 .title-area {
-  padding: 100px 100px 0 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  /*padding: 100px 100px 0 100px;*/
   text-align: center;
   transition: 0.5s;
 }
-.sc1 .title-area h3 {
+.sc1 .title-area .rollingTxt {
+  /* position: absolute;
+  left: 0;
+  top: 0;
+  display: none; */
+
   font-size: 8.5rem;
   font-weight: 900;
   line-height: 160px;
@@ -163,19 +183,17 @@ body {
   padding: 0 100px;
   box-sizing: border-box;
 }
-
-.sc1 .title-area h3:first-child {
+.sc1 .title-area .rollingTxt.t1 {
   -webkit-text-stroke: 3px #ffce00;
-}
-.sc1 .title-area h3:last-child {
 }
 
 .sc1 .article-area {
   display: flex;
   justify-content: center;
-  padding-top: 500px;
   padding-bottom: 100px;
+  height: 100vh;
 }
+
 .sc1 .article-area article {
   position: relative;
   width: 380px;
@@ -187,15 +205,27 @@ body {
   text-align: center;
 
   box-sizing: border-box;
-  margin-right: 40px;
 
   overflow: hidden;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.15s;
+  /*border: 2px solid orange;*/
 }
+.sc1 .article-area article.art1 {
+  margin-right: 100px;
+  margin-top: 30px;
+}
+.sc1 .article-area article.art2 {
+  margin-right: 100px;
+}
+.sc1 .article-area article.art3 {
+  margin-top: 70px;
+}
+
 .sc1 .article-area article:last-child {
   margin-right: 0;
 }
+
 .sc1 .article-area article img {
   width: 100%;
   height: 100%;
@@ -647,6 +677,26 @@ body {
   display: block;
 }
 
+.sc4 .article-area .art-img {
+  width: 440px;
+  height: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.3s linear;
+}
+.sc4 .article-area .art:hover .art-img {
+  height: 700px;
+}
+.sc4 .article-area .img-1 {
+  background-image: url(../img/destination1.png);
+}
+.sc4 .article-area .img-2 {
+  background-image: url(../img/destination2.png);
+}
+.sc4 .article-area .img-3 {
+  background-image: url(../img/destination3.png);
+}
+
 /* Section 5 */
 .sc5 {
   position: relative;
@@ -657,8 +707,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  border: 5px solid coral;
   background-color: #040a16;
 }
 .sc5 .sc5-inner {
