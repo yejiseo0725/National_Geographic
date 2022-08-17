@@ -1,4 +1,14 @@
 $(function () {
+  $(".visual-section .title-area").slick({
+    dots: false,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: false,
+    speed: 1500,
+    infinite: true,
+  });
+
   const videoOffset = $(".sc2 .video-area").offset().top;
   const mainoffset = $(".visual-section .title-area").offset().top;
 
