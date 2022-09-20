@@ -11,21 +11,6 @@ body {
   color: #fff;
 }
 
-.pos {
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 200px;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
-  background-color: yellowgreen;
-  color: #000;
-  font-size: 28px;
-  font-weight: 800;
-  z-index: 100;
-}
-
 a {
   text-decoration: none;
   color: #fff;
@@ -34,6 +19,7 @@ a {
 .layout {
   position: relative;
   max-width: 1920px;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -66,16 +52,29 @@ a {
 .header ul.gnb {
   display: flex;
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 600;
   padding: 0 50px;
   box-sizing: border-box;
 }
 
 .header ul li {
-  margin-right: 50px;
+  margin-right: 35px;
 }
 .header ul li:last-child {
   margin-right: 0;
+  background-color: #fff;
+  border-radius: 40px;
+}
+.header ul li:last-child a {
+  color: #040a16;
+}
+
+.header ul li a {
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
 }
 
 /* Main - Visual Section */
@@ -147,8 +146,6 @@ a {
   width: 100px;
   height: 29px;
   object-fit: cover;
-
-  /* padding: 50px; */
 }
 .visual-section .scr-down-area .scr-line {
   width: 1px;
@@ -189,16 +186,10 @@ a {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  /*padding: 100px 100px 0 100px;*/
   text-align: center;
   transition: 0.5s;
 }
 .sc1 .title-area .rollingTxt {
-  /* position: absolute;
-  left: 0;
-  top: 0;
-  display: none; */
-
   font-size: 8.5rem;
   font-weight: 900;
   line-height: 160px;
@@ -233,7 +224,6 @@ a {
   overflow: hidden;
   cursor: pointer;
   transition: 0.15s;
-  /*border: 2px solid orange;*/
 }
 .sc1 .article-area article.art1 {
   margin-right: 100px;
@@ -245,28 +235,23 @@ a {
 .sc1 .article-area article.art3 {
   margin-top: 70px;
 }
-
 .sc1 .article-area article:last-child {
   margin-right: 0;
 }
-
 .sc1 .article-area article img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: 0.5s;
 }
-
 .sc1 .article-area article:hover img {
   transform: scale(1.2);
 }
-
 .sc1 .article-area article .text-area {
   position: absolute;
-  top: 335px;
+  bottom: 30px;
   padding: 0 20px;
 }
-
 .sc1 .article-area article .yellow-line {
   display: inline-block;
   width: 50px;
@@ -279,12 +264,11 @@ a {
   padding-top: 20px;
 }
 .sc1 .article-area article p {
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.3;
   padding-top: 10px;
 }
-
 .sc1 .scr-down-line {
   position: absolute;
   bottom: 0;
@@ -407,7 +391,6 @@ a {
   flex-direction: column;
   align-items: center;
 }
-
 .sc2 .rolling-area .rolling-boxes .rolling-rightSide {
   position: absolute;
   right: 10%;
@@ -872,4 +855,295 @@ a {
 .sc6 .info-area .info p {
   font-size: 1rem;
   font-weight: 400;
+}
+
+/* Responsive Tablet */
+@media (max-width: 768px) {
+  /* Header */
+  .header {
+    width: 100%;
+    margin-top: 0;
+    padding: 0 30px;
+    box-sizing: border-box;
+  }
+  .header ul.gnb {
+    padding: 0;
+  }
+  .header ul li {
+    margin-right: 15px;
+  }
+  .header ul li:last-child {
+    border-radius: 10px;
+  }
+  .header ul li:last-child a {
+    color: #040a16;
+  }
+  .header ul li a {
+    display: inline-block;
+    width: 130px;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  /* Main - Visual Section */
+  .visual-section .video-area {
+    height: 1024px;
+    max-height: 1024px;
+  }
+  .visual-section .title-area h2 {
+    font-size: 7rem;
+  }
+
+  /* Section 1 */
+  .sc1 .title-area {
+    width: 100%;
+  }
+  .sc1 .title-area .rollingTxt {
+    font-size: 7rem;
+    line-height: 120px;
+    padding: 20px;
+  }
+  .sc1 .article-area article.art1 {
+    margin-right: 10px;
+  }
+  .sc1 .article-area article.art2 {
+    margin-right: 10px;
+  }
+
+  /* Section 3 */
+  .sc3 .sc3-inner {
+    width: 100%;
+  }
+  .sc3 .box2 .text-area {
+    width: 400px;
+    padding-left: 30px;
+  }
+  .sc3 .box2 .img-area {
+    height: 700px;
+    width: 100%;
+  }
+  .sc3 .box2 .img-area .frame {
+    margin-left: 90px;
+  }
+
+  /* Section 4 */
+  .sc4 {
+    width: 100%;
+    height: 1024px;
+  }
+  .sc4 .sc4-inner {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .sc4 .article-area article p {
+    font-size: 2.2rem;
+  }
+
+  /* Section 5 */
+  .sc5 {
+    height: 1024px;
+  }
+  .sc5 .sc5-inner {
+    width: 100%;
+    padding: 200px 0;
+  }
+
+  .sc5 .text-area {
+    width: 95%;
+  }
+  .sc5 .text-area h2 {
+    font-size: 3.5rem;
+  }
+  .sc5 .text-area p {
+    font-size: 2.7rem;
+  }
+
+  /* Section 6 */
+  .sc6 .info-area .info {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .sc6 .info-area .info img {
+    width: 135px;
+    height: 40px;
+  }
+  .sc6 .info-area .info p {
+    width: 500px;
+  }
+}
+
+/* Responsive Phone */
+@media (max-width: 398px) {
+  .header {
+    padding: 0 10px;
+  }
+  .header ul.gnb {
+    font-size: 0.85rem;
+    padding: 0;
+  }
+  .header ul li {
+    margin-right: 5px;
+  }
+  .header ul li:last-child {
+    border-radius: 10px;
+  }
+  .header ul li a {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+  }
+  /* Main - Visual Section */
+  .visual-section .video-area {
+    height: 844px;
+    max-height: 844px;
+  }
+  .visual-section .title-area h2 {
+    font-size: 3.75rem;
+  }
+
+  /* Section 1 */
+  .sc1 .title-area {
+    width: 100%;
+  }
+  .sc1 .title-area .rollingTxt {
+    font-size: 4.5rem;
+    line-height: 80px;
+    padding: 0;
+  }
+  .sc1 .article-area article.art1 {
+    margin-right: 5px;
+  }
+  .sc1 .article-area article.art2 {
+    margin-right: 5px;
+  }
+  .sc1 .article-area article h4 {
+    font-size: 1rem;
+  }
+  .sc1 .article-area article p {
+    font-size: 0.7rem;
+    line-height: 1.3;
+  }
+
+  /* Section 2 */
+  .sc2 {
+    width: 100%;
+  }
+
+  .sc2 .video-area {
+    width: 100%;
+    height: 844px;
+  }
+  .sc2 .text-area {
+    width: 100%;
+    top: 100px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .sc2 .text-area .title-area {
+    padding-bottom: 80px;
+  }
+  .sc2 .text-area .title-area h2 {
+    font-size: 3rem;
+  }
+  .sc2 .text-area .title-area h2 span {
+    font-size: 3.3rem;
+  }
+  .sc2 .text-area .desc-area {
+    width: 100%;
+  }
+  .sc2 .text-area .desc-area p {
+    font-size: 1.1rem;
+  }
+
+  .sc2 .rolling-area .rolling-boxes .rolling-leftSide {
+    left: 15%;
+    width: auto;
+    height: 100%;
+  }
+  .sc2 .rolling-area .rolling-boxes .rolling-rightSide {
+    right: 15%;
+    width: auto;
+    height: 100%;
+    padding-top: 150px;
+  }
+  .sc2 .rolling-area .rolling-boxes article {
+    width: 120px;
+    height: 150px;
+  }
+
+  /* Section 3 */
+  .sc3 .box1 p {
+    font-size: 1rem;
+    line-height: 22px;
+    width: 90%;
+  }
+  .sc3 .sc3-inner {
+    width: 100%;
+  }
+  .sc3 .box2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+  }
+  .sc3 .box2 .text-area {
+    width: 90%;
+    padding-left: 0;
+    padding-bottom: 100px;
+  }
+  .sc3 .box2 .img-area {
+    height: 530px;
+    width: 90%;
+  }
+  .sc3 .box2 .img-area .frame {
+    margin: 0 auto;
+  }
+
+  /* Section 4 */
+  .sc4 {
+    height: 844px;
+  }
+  .sc4 .scr-icon {
+    display: none;
+  }
+  .sc4 .article-area {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+  .sc4 .article-area article {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 10px;
+  }
+  .sc4 .article-area .art-img {
+    width: 440px;
+    height: 180px;
+  }
+
+  /* Section 5 */
+  .sc5 {
+    height: 844px;
+  }
+  .sc5 .sc5-inner {
+    width: 100%;
+    padding: 100px 0;
+  }
+  .sc5 .text-area h2 {
+    font-size: 2.6rem;
+  }
+  .sc5 .text-area p {
+    font-size: 2.2rem;
+  }
+
+  /* Section 6 */
+  .sc6 p.desc {
+    font-size: 1.3rem;
+    line-height: 26px;
+  }
+  .sc6 .info-area .info p {
+    width: 200px;
+    font-size: 0.2rem;
+  }
 }
